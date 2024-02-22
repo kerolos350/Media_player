@@ -147,3 +147,104 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+#mobileCont {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(49, 49, 49, 0.76);
+}
+
+#mobileCont button {
+    height: 60px;
+    width: 60px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.829);
+    outline: none;
+    border: 1px rgb(48, 48, 48);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobileCont img {
+    height: 40px;
+    width: 40px;
+    filter: invert();
+}
+
+#mobPlay-pause {
+    padding-right: 2px;
+}
+
+#MobSeekB {
+    padding-left: 1px;
+}
+
+#MobSeekL {
+    padding-right: 1px;
+}
+
+@media screen and (max-width: 700px) {
+    #play-pause {
+        display: none;
+    }
+
+    #seekB {
+        display: none;
+    }
+
+    #seekF {
+        display: none;
+    }
+
+    #mobileCont {
+        display: flex;
+    }
+
+    .lfBtn {
+        width: 20rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .lfBtn {
+        width: 15rem;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .lfBtn {
+        width: 10rem;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-height: 350px) {
+    #play-pause {
+        display: none;
+    }
+
+    #seekB {
+        display: none;
+    }
+
+    #seekF {
+        display: none;
+    }
+
+    #mobileCont {
+        display: flex;
+    }
+    .lfBtn {
+        width: 15rem;
+        font-size: 12px;
+    }
+}

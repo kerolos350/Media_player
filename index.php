@@ -33,6 +33,11 @@
             <video id="preview" src=""></video>
             <p id="prvTm"></p>
         </div>
+        <div id="mobileCont">
+            <button id="MobSeekB" class="seekB" onclick="sB()"><img src="./svg/expand-left-double-svgrepo-com.svg"></button>
+            <button id="mobPlay-pause" class="play" onclick="play();"><img id="play-pauseImg" src="./svg/play-svgrepo-com.svg"></button>
+            <button id="mobSeekF" class="seekF" onclick="sF()"><img src="./svg/expand-right-double-svgrepo-com.svg"></button>
+        </div>
     </div>
 
     <script src="script.js"></script>
