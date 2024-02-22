@@ -15,13 +15,35 @@ let body = document.getElementById('body')
 let pPIco = document.getElementById('play-pauseImg')
 let fSImg = document.getElementById('fullscreenImg')
 let muteImg = document.getElementById('muteImg')
+let progv = setInterval((progs()), 0)
+let conD = setInterval((cont), 0)
+let preview = document.getElementById('preview')
 
+
+
+progress.value = 0
+
+function fullCk() {
+    if (window.innerWidth == screen.Width || window.innerHeight == screen.height) {
+        fSImg.src = './svg/form-svgrepo-com.svg'
+    } else {
+        fSImg.src = './svg/full-svgrepo-com.svg'
+    }
+    setTimeout(fullCk, 0);
+}
+
+function cont() {
+    controls.style = 'display : felx;'
+}
+
+function progs() {
+    progress.value = (video.currentTime / video.duration) * 100
+}
 
 function playV() {
     if (video.paused) {
         video.play()
         pPIco.src = './svg/stop-svgrepo-com.svg'
-        setInterval(() => {(progress.value = (video.currentTime / video.duration) * 100)}, 500)
         playPause.focus()
     }else {
         video.pause()
@@ -34,7 +56,6 @@ function play() {
     if (video.paused) {
         video.play()
         pPIco.src = './svg/stop-svgrepo-com.svg'
-        setInterval(() => {(progress.value = (video.currentTime / video.duration) * 100)}, 500)
     }else {
         video.pause()
         pPIco.src = './svg/play-svgrepo-com.svg'
@@ -70,17 +91,19 @@ function fS () {
         fSImg.src = './svg/full-svgrepo-com.svg'
     } else {
         document.documentElement.requestFullscreen();
-        body.style.height = '100vh'
         fSImg.src = './svg/form-svgrepo-com.svg'
     }
 };
 
 function sB(x = 1) {
     video.currentTime = video.currentTime - (x * '10')
+    progs()
+
 }
 
 function sF(x = 1) {
     video.currentTime = video.currentTime + (x * '10')
+    progs()
 }
 
 function volCh() {
@@ -98,6 +121,10 @@ function volCh() {
 
 video.ondblclick = () => {
     fS()
+}
+
+body.onmouseover = () => {
+    playPause.focus()
 }
 
 progress.onfocus = () => {
@@ -124,15 +151,22 @@ mute.onfocus = () => {
     playPause.focus()
 }
 
+video.onpause = () => {
+    clearInterval(progv)
+}
+
+video.onplaying = () => {
+    setInterval((progs()), 0)
+}
+
 playPause.onfocus = () => {
     playPause.style.outline = "none"
-    x = 6
+    x = 9
     onkeydown = (event) => {
         if (event.code == 'Space') {
             if (video.paused == false) {
                 video.play()
                 pPIco.src = './svg/stop-svgrepo-com.svg'
-                setInterval(() => {(progress.value = (video.currentTime / video.duration) * 100)}, 500)
             }else {
                 video.pause()
                 pPIco.src = './svg/play-svgrepo-com.svg'
@@ -189,16 +223,19 @@ player.onmouseleave = () => {
     }
 }
 
-counter.onclick = () => {
-    playPause.focus()
+progress.oninput = () => {
+    clearInterval(progv)
+    setInterval((cont), 0)
 }
-
 
 window.onload = () => {
     duration.innerHTML = String(new Date(video.duration * 1000).toISOString().slice(11, 19))
     window.setInterval(function(){currentTime.innerHTML = String(new Date(video.currentTime * 1000).toISOString().slice(11, 19))}, 0)
     media = window.location.href
     media = media.slice(54)
+    clearInterval(conD)
+    setInterval((progs()), 0);
+    progress.value = 0
     document.addEventListener('keydown', (e) => {
     if(e.code === "Space" && controls.style.display === 'none') {
         if (video.paused == false) {
@@ -207,8 +244,40 @@ window.onload = () => {
         }else {
             video.play()
             pPIco.src = './svg/stop-svgrepo-com.svg'
-            setInterval(() => {(progress.value = (video.currentTime / video.duration) * 100)}, 500)
         }
     }
     });
+    fullCk()
 }
+
+progress.oninput = () => {
+    progress.onmousemove = (e) => {
+        let progLt = progress.getBoundingClientRect().left
+        let progRt = progress.getBoundingClientRect().right
+        let progLen = progRt - progLt
+        let mousPLt = e.clientX - progLt
+        let move = (mousPLt / progLen) * 100
+        let prvTm = document.getElementById('prvTm')
+        preview.style = 'display: block; bottom: 6rem; left: ' + String(e.clientX - 120) +'px'
+        prvTm.style = 'display: flex; bottom: 6rem; left: ' + String(e.clientX - 120) +'px'
+        let prvT
+        setInterval((prev()), 0);
+        function prev() {
+            prvT = video.duration * (move / 100)
+            prvTm.innerHTML = String(new Date(prvT * 1000).toISOString().slice(11, 19))
+            preview.src = './content/anime/Boku no Hero Academia 5th Season/Boku no Hero Academia 5th Season الحلقة  14.mp4' + '#t=' + prvT
+        }
+    }
+    progress.onchange = () => {
+    clearInterval(conD)
+    prog()
+    preview.style = 'display: none;'
+    prvTm.style = 'display: none;'
+    }
+
+    progress.onmouseout = () => {
+        preview.style = 'display: none;'
+        prvTm.style = 'display: none;'
+    }
+}
+

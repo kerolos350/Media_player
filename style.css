@@ -1,7 +1,7 @@
 body {
     overflow: hidden;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     margin: auto 0;
     display: flex;
     flex-direction: column;
@@ -10,19 +10,20 @@ body {
     background-color: black;
     color: white;
     margin-left: 0 auto;
+    user-select: none;
 }
 
 #media-player {
-    width: 100%;
-    position: relative;
-    top: 3rem;
+    height: 100%;
 }
 
 #media {
     width: 100%;
+    height: 100%;
 }
 
 .controls {
+    box-shadow: 0px 0px 0px 1px rgba(75, 75, 75, 0.6);
     border-radius: 25px 25px 0 0;
     position: relative;
     top: -5.6rem;
@@ -104,7 +105,7 @@ body {
 #progress {
     -webkit-appearance: none;
     height: 5px;
-    background: #dfdfdfc5;
+    background: #f30505c5;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -126,4 +127,23 @@ body {
     width: 20px;
     background: #0099ff;
     cursor: pointer;
+}
+
+#preview {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 240px;
+    height: 240px;
+    background-color: rgb(8, 8, 8);
+    border: 1px rgb(95, 95, 95);
+    border-radius: 25px;
+}
+
+#prvTm {
+    position: absolute;
+    display: none;
+    width: 240px;
+    justify-content: center;
+    align-items: center;
 }

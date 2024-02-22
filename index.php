@@ -9,7 +9,7 @@
 <body id='body'>
     <div id="media-player">
         <video id="media" onclick="playV()">
-            <source id="src" src="./content/video/Avengers Endgame/Avengers Endgame.mp4" type="video/mp4">
+            <source id="src" src="./content/anime/Dr. Stone New World Part 2/Dr. Stone New World Part 2 001 480p.mp4" type="video/mp4">
         </video>
         <div id="controls" class="controls">
             <input type="range" id="progress" onchange="prog()" value="0">
@@ -28,6 +28,10 @@
                 </div>
                 <button id="fullscreen" class="fullscreen" onclick="fS()"><img id="fullscreenImg" src="./svg/full-svgrepo-com.svg"></button>
             </div>
+        </div>
+        <div>
+            <video id="preview" src=""></video>
+            <p id="prvTm"></p>
         </div>
     </div>
 
