@@ -16,7 +16,7 @@ let pPIco = document.getElementById('play-pauseImg'); // Play/Pause icon
 let mobPPIco = document.getElementById('mobPlay-pauseImg'); // Mobile Play/Pause icon
 let fSImg = document.getElementById('fullscreenImg'); // Fullscreen icon
 let muteImg = document.getElementById('muteImg'); // Mute icon
-let progv = setInterval((progs()), 0); // Update progress bar every frame
+let progv = setInterval(progs, 0); // Update progress bar every frame
 let conD = setInterval((cont), 0); // Controls display
 let preview = document.getElementById('preview'); // Preview image on progress bar hover
 let mobileCont = document.getElementById('mobileCont'); // Mobile controls container
@@ -173,7 +173,7 @@ video.onpause = () => {
 
 // Start progress bar updates when video starts playing
 video.onplaying = () => {
-    setInterval((progs()), 0);
+    setInterval(progs, 0);
 }
 
 // Spacebar control for play/pause functionality
@@ -306,8 +306,8 @@ window.onload = () => {
     media = window.location.href;
     media = media.slice(54);
     clearInterval(conD);
-    setInterval((progs()), 0);
     progress.value = 0;
+    setInterval(progs, 0);
 
 
     // Check if the video player width is less than 700 pixels (likely a mobile device or small screen).
