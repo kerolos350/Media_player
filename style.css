@@ -1,250 +1,270 @@
+/* Body styles */
 body {
-    overflow: hidden;
-    height: 100vh;
-    width: 100%;
-    margin: auto 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    margin-left: 0 auto;
-    user-select: none;
+    overflow: hidden; /* Prevents scrolling */
+    height: 100vh; /* Full height of the viewport */
+    width: 100%; /* Full width */
+    margin: auto 0; /* Centers the body vertically */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Arranges items in a column */
+    justify-content: center; /* Centers items vertically */
+    align-items: center; /* Centers items horizontally */
+    background-color: black; /* Sets background color to black */
+    color: white; /* Sets text color to white */
+    margin-left: 0 auto; /* Centers the body horizontally */
+    user-select: none; /* Disables text selection */
 }
 
+/* Media player container */
 #media-player {
-    height: 100%;
+    height: 100%; /* Full height */
 }
 
+/* Media container */
 #media {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
 }
 
+/* Controls container styles */
 .controls {
-    box-shadow: 0px 0px 0px 1px rgba(75, 75, 75, 0.6);
-    border-radius: 25px 25px 0 0;
+    box-shadow: 0px 0px 0px 1px rgba(75, 75, 75, 0.6); /* Shadow for controls */
+    border-radius: 25px; /* Rounded corners */
     position: relative;
-    top: -5.6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 5rem;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.705);
-    padding: 0.6rem 0;
+    top: -5.8rem; /* Moves controls upwards */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Column layout */
+    justify-content: space-evenly; /* Even space between controls */
+    align-items: center; /* Centers controls horizontally */
+    height: 4rem; /* Control height */
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.705); /* Semi-transparent background */
+    padding: 0.6rem 0; /* Padding for the controls */
 }
 
+/* Button styles within controls */
 .controls button {
-    background-color: transparent;
-    border: 1px rgba(66, 66, 66, 0.904);
-    border-radius: 50px;
+    background-color: transparent; /* Transparent background */
+    border: 1px rgba(66, 66, 66, 0.904); /* Border color */
+    border-radius: 50px; /* Rounded buttons */
 }
 
+/* Image styles for buttons */
 .controls img {
-    height: 28px;
-    filter: invert();
+    height: 28px; /* Image height */
+    filter: invert(); /* Inverts colors */
 }
 
+/* Buttons container */
 .btns {
-    width: 85%;
-    height: 3rem;
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
+    width: 85%; /* Width of the container */
+    height: 3rem; /* Button height */
+    display: grid; /* Grid layout */
+    grid-template-columns: auto auto; /* Two columns layout */
+    align-items: flex-end; /* Aligns items to the bottom */
 }
 
+/* Left button styles */
 .lfBtn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    width: 30rem;
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Aligns items vertically */
+    gap: 5px; /* Adds space between items */
 }
 
+/* Mute button */
 #mute {
-    margin-right: 15px;
+    margin-right: 15px; /* Adds margin to the right */
 }
 
+/* Sound control container */
 .sound {
-    display: flex;
+    display: flex; /* Flexbox layout */
 }
 
+/* Hover effect for sound control */
 .sound:hover #volume {
-    visibility: visible;
-    width: 5rem;
+    visibility: visible; /* Makes volume control visible on hover */
+    width: 5rem; /* Sets width of the volume control */
 }
 
+/* Volume control hidden by default */
 #volume {
-    visibility: hidden;
-    width: 0rem;
-    transition: width 1s ease-in-out;
+    visibility: hidden; /* Hidden initially */
+    width: 0rem; /* Zero width */
+    transition: width 1s ease-in-out; /* Smooth transition for width */
 }
 
+/* Time display settings */
 .time-display {
-    margin-right: 15px;
-    pointer-events: none;
+    pointer-events: none; /* Disables interaction with time display */
 }
+
+/* Time span without description */
 .time-display span:not(.description) {
-    pointer-events: initial;
-    user-select: none;
-    cursor: default;
+    pointer-events: initial; /* Allows interaction with spans */
+    user-select: none; /* Disables text selection */
+    cursor: default; /* Default cursor style */
 }
 
+/* Progress bar styles */
 #progress {
-    width: 85%;
-    outline: none;
+    width: 85%; /* Width of the progress bar */
+    outline: none; /* Removes outline */
 }
 
+/* Fullscreen button styles */
 #fullscreen {
-    width: 40px;
-    margin-left: auto;
+    width: 40px; /* Width of the button */
+    margin-left: auto; /* Pushes the button to the right */
 }
 
+/* Progress bar appearance */
 #progress {
-    -webkit-appearance: none;
-    height: 5px;
-    background: #f30505c5;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    border-radius: 25px;
+    appearance: none; /* Removes default appearance */
+    height: 5px; /* Sets height of the progress bar */
+    background: #f30505c5; /* Sets background color */
+    outline: none; /* Removes outline */
+    opacity: 0.7; /* Set opacity */
+    -webkit-transition: .2s; /* Transition for webkit browsers */
+    transition: opacity .2s; /* Transition for opacity */
+    border-radius: 25px; /* Rounded corners */
 }
 
+/* Hover effect for progress bar */
 #progress:hover {
-    opacity: 1;
+    opacity: 1; /* Full opacity on hover */
 }
 
+/* Thumb style for the progress bar */
 #progress::-webkit-slider-thumb {
-    width: 20px;
-    background: #0099ff;
-    cursor: pointer;
+    width: 20px; /* Thumb width */
+    background: #0099ff; /* Thumb color */
+    cursor: pointer; /* Pointer cursor */
 }
 
+/* Firefox thumb style for progress bar */
 #progress::-moz-range-thumb {
-    width: 20px;
-    background: #0099ff;
-    cursor: pointer;
+    width: 20px; /* Thumb width */
+    background: #0099ff; /* Thumb color */
+    cursor: pointer; /* Pointer cursor */
 }
 
+/* Preview style */
 #preview {
-    display: none;
-    position: absolute;
-    left: 0;
-    width: 240px;
-    height: 240px;
-    background-color: rgb(8, 8, 8);
-    border: 1px rgb(95, 95, 95);
-    border-radius: 25px;
+    display: none; /* Hidden by default */
+    position: absolute; /* Absolute positioning */
+    left: 0; /* Left position */
+    width: 240px; /* Width of the preview */
+    height: 240px; /* Height of the preview */
+    background-color: rgb(8, 8, 8); /* Background color */
+    border: 1px rgb(95, 95, 95); /* Border color */
+    border-radius: 25px; /* Rounded corners */
 }
 
+/* Preview time styles */
 #prvTm {
-    position: absolute;
-    display: none;
-    width: 240px;
-    justify-content: center;
-    align-items: center;
+    position: absolute; /* Absolute positioning */
+    display: none; /* Hidden by default */
+    width: 240px; /* Width of the preview time */
+    justify-content: center; /* Centers content */
+    align-items: center; /* Aligns content */
 }
 
+/* Mobile container styles */
 #mobileCont {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(49, 49, 49, 0.76);
+    display: none; /* Hidden by default */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Top position */
+    left: 0; /* Left position */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    justify-content: center; /* Centers items */
+    align-items: center; /* Centers items */
+    background-color: rgba(49, 49, 49, 0.76); /* Semi-transparent background */
 }
 
+/* Button styles inside mobile container */
 #mobileCont button {
-    height: 60px;
-    width: 60px;
-    margin: 20px;
-    background-color: rgba(0, 0, 0, 0.829);
-    outline: none;
-    border: 1px rgb(48, 48, 48);
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 60px; /* Button height */
+    width: 60px; /* Button width */
+    margin: 20px; /* Margin around buttons */
+    background-color: rgba(0, 0, 0, 0.829); /* Background color */
+    outline: none; /* Removes outline */
+    border: 1px rgb(48, 48, 48); /* Border color */
+    border-radius: 50px; /* Rounded buttons */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Centers content */
+    align-items: center; /* Centers content */
 }
 
+/* Image styles inside mobile container */
 #mobileCont img {
-    height: 40px;
-    width: 40px;
-    filter: invert();
+    height: 40px; /* Image height */
+    width: 40px; /* Image width */
+    filter: invert(); /* Inverts colors */
 }
 
+/* Padding for play/pause button */
 #mobPlay-pause {
-    padding-right: 2px;
+    padding-right: 2px; /* Adds padding to the right */
 }
 
+/* Padding for seek backward button */
 #MobSeekB {
-    padding-left: 1px;
+    padding-left: 1px; /* Adds padding to the left */
 }
 
+/* Padding for seek forward button */
 #MobSeekL {
-    padding-right: 1px;
+    padding-right: 1px; /* Adds padding to the right */
 }
 
+/* Media query for screens with max-width 700px */
 @media screen and (max-width: 700px) {
     #play-pause {
-        display: none;
+        display: none; /* Hides play/pause button */
     }
 
     #seekB {
-        display: none;
+        display: none; /* Hides backward seek button */
     }
 
     #seekF {
-        display: none;
-    }
-
-    #mobileCont {
-        display: flex;
-    }
-
-    .lfBtn {
-        width: 20rem;
+        display: none; /* Hides forward seek button */
     }
 }
 
+/* Media query for screens with max-width 500px */
 @media screen and (max-width: 500px) {
     .lfBtn {
-        width: 15rem;
-        font-size: 15px;
+        font-size: 15px; /* Reduces font size */
     }
 }
 
+/* Media query for screens with max-width 400px */
 @media screen and (max-width: 400px) {
     .lfBtn {
-        width: 10rem;
-        font-size: 12px;
+        font-size: 12px; /* Further reduces font size */
     }
 }
 
+/* Media query for screens with max-height 350px */
 @media screen and (max-height: 350px) {
     #play-pause {
-        display: none;
+        display: none; /* Hides play/pause button */
     }
 
     #seekB {
-        display: none;
+        display: none; /* Hides backward seek button */
     }
 
     #seekF {
-        display: none;
+        display: none; /* Hides forward seek button */
     }
 
     #mobileCont {
-        display: flex;
+        display: flex; /* Displays mobile container */
     }
     .lfBtn {
-        width: 15rem;
-        font-size: 12px;
+        font-size: 12px; /* Reduces font size */
     }
 }
