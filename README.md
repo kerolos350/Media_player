@@ -72,4 +72,4 @@ This project is licensed under the Creative Commons NonCommercial License (CC BY
 ### Notes:
 - Replace `https://github.com/kerolos350/Media_player` with the actual URL to your repository.
 - Replace the video source path if the `test.mp4` file is stored elsewhere.
-- You can also add a license section if you're using a specific license for your project. For now, I have included the MIT License as an example.
+- You can also add a license section if you're using a specific license for your project. For now, I have included the Creative Commons NonCommercial License (CC BY-NC) License as an example.
