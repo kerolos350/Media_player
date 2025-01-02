@@ -309,6 +309,13 @@ window.onload = () => {
     setInterval((progs()), 0);
     progress.value = 0;
 
+
+    // Check if the video player width is less than 700 pixels (likely a mobile device or small screen).
+    // If true, display the mobile controls in 'flex' style to make them visible.
+    if ((video.getBoundingClientRect().left - video.getBoundingClientRect().right) > -700) {
+        mobileCont.style.display = 'flex'; // Show mobile controls when video is playing
+    }
+
     // Add event listener for spacebar control when controls are hidden
     document.addEventListener('keydown', (e) => {
         if (e.code === "Space" && controls.style.display === 'none') {
